@@ -1,41 +1,72 @@
 body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
     background-image: url(../assets/images/fondo.jpg);
     background-repeat: no-repeat;
     background-position: center center;
     background-attachment: fixed;
     background-size: cover;
-    margin: 0;
+}
 
+.container {
     display: grid;
-    grid-template-areas:
-        "header"
-        "main"
-        "footer";
-    grid-template-columns: 1fr;
     grid-template-rows: auto 1fr auto;
-    
+    min-height: 100vh;
 }
 
-.cards-container,
-.seasons-container {
+.header {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
 
-    max-width: 1200px;
-    width: 100%;
-    margin: auto;
-    display: flex;
-    flex-wrap: wrap;
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
     justify-content: center;
-    /* background-color: #f2f2f2;  */
+    align-items: center;
+    padding: 20px;
 }
 
-.card,
-.season {
+/* Estilos para details-container */
+.details-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  /* Estilos para seasons-container dentro de details-container */
+  .details-container .seasons-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Estilos para crest-image dentro de seasons-container */
+  .details-container .crest-image {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+  }
+  
+  /* Estilos adicionales para otros elementos dentro de details-container si es necesario */
+  
+
+.card,.winner {
     border: 1px solid #ccc;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin: 10px;
     padding: 20px;
-    width: 200px;
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -44,54 +75,20 @@ body {
     background-color: #f2f2f2;
 }
 
-.logo,
-.crest-image {
+.logo {
     width: 100px;
     height: auto;
     object-fit: cover;
 }
 
-
-.cards-container .card h4,
-.seasons-container .season h4 {
+.card h4 {
     font-size: 18px;
     margin-bottom: 10px;
 }
 
-header {
-    grid-area: header;
+.footer {
     background-color: #333;
     color: white;
-    text-align: center;
     padding: 10px;
-  }
-  
-  main {
-    grid-area: main;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
-    padding: 20px;
-  }
-  
-  footer {
-    grid-area: footer;
-    background-color: #333;
-    color: white;
     text-align: center;
-    padding: 10px;
-  }
-  
-  .card {
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    text-align: center;
-  }
-  
-  .logo, .crest-image {
-    width: 100px;
-    height: auto;
-    object-fit: cover;
-  }
+}
