@@ -1,3 +1,8 @@
+@font-face {
+    font-family: nfl;
+    src: url(../assets/fonts/Inter\ Miami\ 2023.ttf);
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -14,14 +19,46 @@ body {
 .container {
     display: grid;
     grid-template-rows: auto 1fr auto;
-    min-height: 100vh;
+    
+    max-width: 1200px;
+    width: 100%;
+    margin: auto;
 }
 
 .header {
-    background-color: #333;
+    background-color: #1C1F2F;
     color: white;
     padding: 10px;
     text-align: center;
+    
+  }
+  .header__title{
+    display: flex;
+    justify-content: space-around;
+    font-family: nfl;
+  }
+  
+  .header__nav {
+    display: flex;
+    justify-content: space-around; 
+    background-color:#1C1F2F; 
+    padding: 10px;
+  }
+  
+  .header__nav a {
+    color: white; 
+    text-decoration: none; 
+    font-family: nfl;
+    transition: color 0.3s; 
+  }
+  
+  .header__nav a:hover {
+    color: #FF0C3D; }
+    
+
+.img__logo{
+    height: 70px;
+    width: 80px;
 }
 
 .grid-container {
@@ -31,6 +68,7 @@ body {
     justify-content: center;
     align-items: center;
     padding: 20px;
+    font-family: nfl;
 }
 
 /* Estilos para details-container */
@@ -41,6 +79,7 @@ body {
     justify-content: center;
     align-items: center;
     padding: 20px;
+    font-family: nfl;
   }
   
   /* Estilos para seasons-container dentro de details-container */
@@ -61,9 +100,13 @@ body {
   
   /* Estilos adicionales para otros elementos dentro de details-container si es necesario */
   
+  .season{
+    background-color: white;
+    text-align: center;
+  }
 
 .card,.winner {
-    border: 1px solid #ccc;
+    /* border: 1px solid #ccc; */
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     padding: 20px;
@@ -87,8 +130,9 @@ body {
 }
 
 .footer {
-    background-color: #333;
+    background-color: #1C1F2F;
     color: white;
     padding: 10px;
     text-align: center;
+    font-family: nfl;
 }

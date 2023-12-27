@@ -104,7 +104,7 @@ document.addEventListener('DOMContentLoaded', function () {
         seasonElement.classList.add('season');
 
         const seasonTitle = document.createElement('h4');
-        seasonTitle.textContent = `Año: ${new Date(season.startDate).getFullYear()}`;
+        seasonTitle.textContent = `Temporada: ${new Date(season.startDate).getFullYear()}`;
         seasonElement.appendChild(seasonTitle);
 
         // Mostrar los datos
@@ -113,7 +113,7 @@ document.addEventListener('DOMContentLoaded', function () {
           winnerElement.classList.add('winner');
 
           const winnerName = document.createElement('p');
-          winnerName.textContent = `Ganador: ${season.winner.name}`;
+          winnerName.textContent = ` ${season.winner.name}`;
           winnerElement.appendChild(winnerName);
 
           const winnerCrest = document.createElement('img');
@@ -123,9 +123,9 @@ document.addEventListener('DOMContentLoaded', function () {
           winnerElement.appendChild(winnerCrest);
 
           seasonElement.appendChild(winnerElement);
-        }
+       
 
-        detailsContainer.appendChild(seasonElement);
+        detailsContainer.appendChild(seasonElement); }
       });
     }
   }
