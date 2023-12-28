@@ -1,3 +1,5 @@
+// Clase para acceder a la api
+
 class Competitions {
   constructor(apiKey) {
     this.apiKey = apiKey;
@@ -35,10 +37,11 @@ class Competitions {
   }
 }
 
+// Generar los datos de la api
 document.addEventListener('DOMContentLoaded', function () {
   const mainContainer = document.getElementById('main');
 
-  // Crear instancia de la clase Competitions
+  
   const apiKey = '17c5405350aa42ba92590010d4b993d7';
   const competitionsApi = new Competitions(apiKey);
 
@@ -76,9 +79,7 @@ document.addEventListener('DOMContentLoaded', function () {
         .then((specificCompetitionData) => {
           showCompetitionDetails(specificCompetitionData);
         })
-        .catch((error) => {
-          console.error('Error en la solicitud de la competición específica:', error);
-        });
+        
     });
   }
 
@@ -88,7 +89,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Datos de la competición
     console.log('Detalles de la competición:', competitionDetails);
 
-    // Obtener el contenedor de detalles
+    // Donde se van a mostrar los ganadores
     const detailsContainer = document.querySelector('.details-container');
 
 
@@ -99,12 +100,12 @@ document.addEventListener('DOMContentLoaded', function () {
       const detailsContainer = document.querySelector('.details-container');
 
       competitionDetails.seasons.forEach((season) => {
-        // Creación del div
+        
         const seasonElement = document.createElement('div');
         seasonElement.classList.add('season');
 
         const seasonTitle = document.createElement('h4');
-        seasonTitle.textContent = `Temporada: ${new Date(season.startDate).getFullYear()}`;
+        seasonTitle.textContent = `Año: ${new Date(season.startDate).getFullYear()}`;
         seasonElement.appendChild(seasonTitle);
 
         // Mostrar los datos
@@ -125,7 +126,9 @@ document.addEventListener('DOMContentLoaded', function () {
           seasonElement.appendChild(winnerElement);
        
 
-        detailsContainer.appendChild(seasonElement); }
+        detailsContainer.appendChild(seasonElement);
+      
+     }
       });
     }
   }
@@ -141,7 +144,5 @@ document.addEventListener('DOMContentLoaded', function () {
         }
       }
     })
-    .catch((error) => {
-      console.error('Error en la solicitud:', error);
-    });
+   
 });

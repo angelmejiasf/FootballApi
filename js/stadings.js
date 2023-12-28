@@ -1,3 +1,5 @@
+// Crear clase para acceder a la api
+
 class FootballApi {
   constructor(apiKey, apiHost) {
     this.apiKey = apiKey;
@@ -12,6 +14,7 @@ class FootballApi {
     };
   }
 
+  // Obtener las ligas
   async getLeagues() {
     try {
       const response = await fetch("https://v3.football.api-sports.io/leagues", this.requestOptions);
@@ -23,9 +26,10 @@ class FootballApi {
     }
   }
 
+  // Obtener los goleadores de la liga con el id seleccionado
   async getTopScorers(leagueId) {
     try {
-      const response = await fetch(`https://v3.football.api-sports.io/players/topscorers?season=2020&league=${leagueId}`, this.requestOptions);
+      const response = await fetch(`https://v3.football.api-sports.io/players/topscorers?season=2023&league=${leagueId}`, this.requestOptions);
       const result = await response.json();
       return result.response;
     } catch (error) {
@@ -35,6 +39,7 @@ class FootballApi {
   }
 }
 
+// Clase para los contenedores
 class FootballApp {
   constructor(apiKey, apiHost) {
     this.footballApi = new FootballApi(apiKey, apiHost);
@@ -47,9 +52,10 @@ class FootballApp {
     this.renderLeagues(ligas);
   }
 
+  // Mostrar los datos de las ligas
   renderLeagues(ligas) {
     if (this.ligasContainer) {
-      ligas.slice(0, 11).forEach(liga => {
+      ligas.slice(2, 12).forEach(liga => {
         const nombreLiga = liga.league.name;
         const logoLiga = liga.league.logo;
         const idLiga = liga.league.id;
@@ -63,12 +69,10 @@ class FootballApp {
 
         this.ligasContainer.appendChild(ligaDiv);
       });
-    } else {
-      console.error("No se encontró el contenedor con el ID 'ligas-container'.");
     }
   }
 
- 
+//  Mostrar los goleadores de cada liga seleccionada
   async renderTopScorers(leagueId) {
     const topScorers = await this.footballApi.getTopScorers(leagueId);
 
@@ -94,6 +98,7 @@ class FootballApp {
 }
 
 
+// Datos de la api
 const apiKey = "62d4a4d37f280a99d8e42a7c5ed72fe6";
 const apiHost = "v3.football.api-sports.io";
 const footballApp = new FootballApp(apiKey, apiHost);

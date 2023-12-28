@@ -9,35 +9,34 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  background-image: url(../assets/images/fondo.jpg);
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-attachment: fixed;
+  background: url(../assets/images/fondo.jpg) no-repeat center center fixed;
   background-size: cover;
 }
 
 .container {
   display: grid;
-  grid-template-areas:
-    "header"
-    "main"
-    "details"
-    "footer";
-  grid-template-rows: auto 1fr auto;
+  grid-template-areas: "header" "h2" "main" "details" "footer";
+  grid-template-rows: auto auto 1fr auto;
   height: 100vh;
   max-width: 1200px;
-    width: 100%;
-    margin: auto;
+  width: 100%;
+  margin: auto;
+}
+
+.container h2 {
+  grid-area: h2;
+  text-align: center;
+  font-family: nfl;
 }
 
 .header {
-  background-color: #1C1F2F;
+  background: #1C1F2F;
   color: white;
   padding: 10px;
   text-align: center;
-  
 }
-.header__title{
+
+.header__title {
   display: flex;
   justify-content: space-around;
   font-family: nfl;
@@ -45,20 +44,21 @@ body {
 
 .header__nav {
   display: flex;
-  justify-content: space-around; 
-  background-color:#1C1F2F; 
+  justify-content: space-around;
+  background: #1C1F2F;
   padding: 10px;
 }
 
 .header__nav a {
-  color: white; 
-  text-decoration: none; 
-  font-family: nfl; 
-  transition: color 0.3s; 
+  color: white;
+  text-decoration: none;
+  font-family: nfl;
+  transition: color 0.3s;
 }
 
 .header__nav a:hover {
-  color: #FF0C3D; }
+  color: #FF0C3D;
+}
 
 .img__logo {
   height: 70px;
@@ -68,8 +68,7 @@ body {
 #main {
   grid-area: main;
   display: grid;
-  grid-template-areas:
-    "ligas";
+  grid-template-areas: "ligas";
   text-align: center;
 }
 
@@ -81,22 +80,37 @@ body {
   padding: 20px;
 }
 
+#ligas-container div {
+  background: white;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  font-family: nfl;
+}
+
+#ligas-container img {
+  max-width: 200px;
+  max-height: 200px;
+  object-fit: contain;
+}
+
 .details-container {
   grid-area: details;
-  background-color: #eee;
+  background: #eee;
   padding: 20px;
+  font-family: nfl;
 }
 
 .footer {
   grid-area: footer;
-  background-color: #1C1F2F;
+  background: #1C1F2F;
   color: white;
   text-align: center;
   padding: 1em;
   font-family: nfl;
-  
 }
-
 
 .player-grid {
   display: grid;
@@ -114,4 +128,3 @@ body {
   max-width: 100%;
   height: auto;
 }
-
